@@ -39,10 +39,8 @@ public class LoginPostController {
 			// verificar se houveram erros de validação
 			if (result.size() > 0) {
 
-				return ResponseEntity
-						.status(HttpStatus.BAD_REQUEST)
-						.body(result);			
-				
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
+
 			} else {
 
 				// buscar o usuario no banco de dados atraves do email e da senha..
@@ -50,8 +48,6 @@ public class LoginPostController {
 
 				// verificar se o usuario foi encontrado..
 				if (usuario != null) {
-
-					result.add("Usuário autenticado com sucesso.");
 
 					return ResponseEntity.status(HttpStatus.OK).body(result);
 
